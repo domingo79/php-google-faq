@@ -1,7 +1,7 @@
 <?php
 include './server.php';
 
-var_dump($FAQ);
+#var_dump($FAQ);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,12 @@ var_dump($FAQ);
 </head>
 
 <body>
-
+    <?php foreach ($FAQ as $value) { ?>
+        <div class="box">
+            <h2><?= $value['domanda']; ?></h2>
+            <p><?= $value['risposta']; ?></p>
+        </div>
+    <?php } ?>
 </body>
 
 </html>
