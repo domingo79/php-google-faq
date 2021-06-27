@@ -11,39 +11,33 @@ include './server.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/2c30adbff5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./asset/css/style.css">
     <title>Faq</title>
 </head>
 
 <body>
+    <h1>Domande Frequenti</h1>
 
-    <div class="container">
-        <?php foreach ($FAQ as $value) { ?>
-            <div class="panel active" style="background-image: url('<?= $value['url'] ?>');">
-                <h3><?= $value['domanda']; ?></h3>
-                <p><?= $value['risposta']; ?></p>
+    <div class="faq_container">
+        <?php foreach ($FAQ as $value) : ?>
+
+            <div class="faq active">
+                <h3 class="faq_title">
+                    <?= $value['domanda']; ?>
+                </h3>
+                <p class="faq_text">
+                    <?= $value['risposta']; ?>
+                </p>
+                <button class="faq_toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
-    <script>
-        const panels = document.querySelectorAll('.panel');
-        // crea un array
-        //console.log(panels[2]);
 
-        panels.forEach(panel => {
-            panel.addEventListener('click', () => {
-                removeActiveClass()
-                panel.classList.add('active')
-            })
-        })
-
-        // funzione per rimuovere la classe attiva
-        function removeActiveClass() {
-            panels.forEach(panel => {
-                panel.classList.remove('active')
-            })
-        }
-    </script>
+    <script src="./asset/js/main.js"></script>
 </body>
 
 </html>
